@@ -15,15 +15,10 @@ class Article(models.Model):
     contenu = models.TextField(null=True)
     date = models.DateTimeField(default=timezone.now,
                                 verbose_name="Date de parution")
-    categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE),
+    categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['date']
 
     def __str__(self):
-        """
-        Cette méthode que nous définirons dans tous les modèles
-        nous permettra de reconnaître facilement les différents objets que
-        nous traiterons plus tard dans l'administration
-        """
         return self.titre
